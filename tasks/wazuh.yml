@@ -1,0 +1,13 @@
+- name: Adds wazuh key
+  apt_key:
+    url: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+    state: present
+
+- name: Adds wazuh repos
+  apt_repository:
+    repo: "deb https://packages.wazuh.com/apt {{ ansible_lsb.codename }} main"
+    filename: /etc/apt/sources.list.d/wazuh.list
+
+- name: Installs wazuh agent
+  apt: pkg=wazuh-agent state=present
+
