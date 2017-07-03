@@ -6,5 +6,6 @@
 - name: Checking that required variables are set
   fail: msg="{{ item }} is not defined"
   when: not item
-  with_items: []
+  with_items:
+    - wazuh_manager_ip
 

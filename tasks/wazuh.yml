@@ -11,3 +11,12 @@
 - name: Installs wazuh agent
   apt: pkg=wazuh-agent state=present
 
+- name: Adds config file
+  template:
+    src: ossec.conf.j2
+    dest: /var/ossec/etc/ossec.conf
+    mode: 0644
+    owner: root
+    group: ossec
+  notify:
+    - Restart wazuh-agent

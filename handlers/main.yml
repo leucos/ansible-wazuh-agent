@@ -1,4 +1,4 @@
-- name: Restart wazuh-manager
+- name: Restart wazuh-agent
   service:
     name: wazuh-agent
     state: restarted
